@@ -11,7 +11,8 @@
     width: auto;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    height: 15vh;
+    box-sizing: border-box;
   }
 .undertitle {
     font-size: 20px;
@@ -21,8 +22,11 @@
     align-items: center;
   }
 .top-title .title {
-    font-size: 40px; 
-    flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px; 
+  flex: 1; 
   }
 .butui {
     display: flex;
@@ -32,17 +36,17 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: aliceblue;
     width: auto;
-    height: 50px;
+    height: 8vh;
   }
 .but{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(8, 150, 150);
+    background-color: #048C7F;
     text-decoration: none;
     color: inherit;
     flex: 1;
-    height: 50px;
+    height: inherit;
   }
 html {
     height: 100%;
@@ -55,7 +59,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgb(4, 47, 59);
-  height: 10%;
+  height: 10vh;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -68,5 +72,30 @@ body {
 .bottom a img{
   display: block;
   height: 100%;
-  
+}
+.mainchunk {
+  width: 100%;
+  height: 67vh;
+  background-color: #81CDC6;
+  display: flex;
+  flex-direction: column;
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #036c5f;
+  border-radius: 25px;
+  height: 34%;
+  width: 30%;
+  margin: 15px;
+}
+.project img{
+ height: 50%;
+}
+.project div{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: aliceblue;
+  font-size: 30px;
 }
