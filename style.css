@@ -44,3 +44,29 @@
     flex: 1;
     height: 50px;
   }
+html {
+    height: 100%;
+  }
+body {
+    min-height: 100%;
+  }
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(4, 47, 59);
+  height: 10%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  gap: 1%;
+}
+.bottom a{
+  display: block;
+  height: 50%;
+}
+.bottom a img{
+  display: block;
+  height: 100%;
+  
+}
