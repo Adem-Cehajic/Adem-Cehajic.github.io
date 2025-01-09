@@ -79,6 +79,8 @@ body {
   background-color: #81CDC6;
   display: flex;
   flex-direction: column;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: aliceblue;
 }
 .project {
   display: flex;
@@ -107,4 +109,16 @@ body {
   height: 100%;
   width: 100%;
   text-decoration: none;
+}
+.mainchunk > .title{
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.mainchunk > div{
+  padding: 3%;
+  font-size: 25px;
 }
