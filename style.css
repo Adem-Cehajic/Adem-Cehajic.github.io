@@ -78,7 +78,8 @@ body {
   height: 67vh;
   background-color: #81CDC6;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: aliceblue;
 }
@@ -121,4 +122,12 @@ body {
 .mainchunk > div{
   padding: 3%;
   font-size: 25px;
+}
+
+#sightsense-blurb{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
