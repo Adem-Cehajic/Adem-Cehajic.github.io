@@ -78,6 +78,7 @@ body {
   height: 67vh;
   background-color: #81CDC6;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -130,4 +131,10 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+#project-page{
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
