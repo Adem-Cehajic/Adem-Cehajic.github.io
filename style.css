@@ -148,7 +148,7 @@ body {
   text-align: center;
 }
 #about-me{
-  padding-top: 25vh;
+  padding-top: 20vh;
 }
 .skill-list {
   width: 100%;
@@ -157,5 +157,12 @@ body {
   max-height: 300px;
 }
 .skill-list > *{
-  width: 50%;
+  width: 100%;
+}
+.skill-imgs{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.skill-imgs *{
+  padding: 5px;
 }
