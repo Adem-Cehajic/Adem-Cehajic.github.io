@@ -4,15 +4,16 @@
   }
 .top-title {
     color: antiquewhite;
-    background-color: rgb(84, 168, 168);
+    background-color: #384E77;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    width: auto;
+    width: 100%;
     align-items: center;
     justify-content: center;
-    height: 15vh;
+    height: 10vh;
     box-sizing: border-box;
+    position: fixed;
   }
 .undertitle {
     font-size: 20px;
@@ -25,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px; 
+  font-size: 35px; 
   flex: 1; 
   }
 .butui {
@@ -35,32 +36,40 @@
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: aliceblue;
-    width: auto;
+    width: 100%;
     height: 8vh;
+    position: fixed;
+    padding-top: 10vh;
   }
 .but{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #048C7F;
+    background-color: #384E77;
     text-decoration: none;
     color: inherit;
     flex: 1;
     height: inherit;
   }
 html {
-    height: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    background-image: linear-gradient(to bottom, #203358, #590c2d);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: auto;
   }
 body {
-    min-height: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 .bottom {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(4, 47, 59);
+  background-color: #2E0014;
   height: 10vh;
-  position: fixed;
   bottom: 0;
   width: 100%;
   gap: 1%;
@@ -73,10 +82,16 @@ body {
   display: block;
   height: 100%;
 }
-.mainchunk {
+#project-page{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 67vh;
-  background-color: #81CDC6;
+} 
+.mainchunk {
+  /*background-color: #0C7C59;*/
+  /*background-image: linear-gradient(to bottom, #0C7C59, #B80C09);*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,10 +104,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #036c5f;
+  background-color: #384E77;
   border-radius: 25px;
-  height: 34%;
-  width: 30%;
+  height: 200px;
+  width: 200px;
   margin: 15px;
 }
 .project img{
@@ -132,9 +147,15 @@ body {
   justify-content: center;
   text-align: center;
 }
-
-#project-page{
+#about-me{
+  padding-top: 25vh;
+}
+.skill-list {
+  width: 100%;
+  display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  max-height: 300px;
+}
+.skill-list > *{
+  width: 50%;
 }

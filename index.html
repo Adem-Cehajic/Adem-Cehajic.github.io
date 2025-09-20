@@ -8,21 +8,51 @@
   </head>
   <body>
     <div class="top-title"> <!--Big blue box-->
-      <h1 class="title">Hello Friends!</h1>
-      <p class="undertitle">My Name is Adem Cehajic and this is my personal website!</p>
+      <h1 class="title">Adem Cehajic</h1>
+      <p class="undertitle">Computer Engineer | Software Developer | AI Researcher</p>
     </div>
     <div class="butui">
       <!--the blue box underneath, 
       also for the addition of future pages,
       simply add another link with class but and it will format itself
       (ty flexbox)-->
-      <a class="but" href="index.html">Homepage</a><a href="projects.html" class="but">Projects</a>
+      <a class="but" href="#about-me">Homepage</a><a href="#project-page" class="but">Projects</a>
     </div>
-    <div class="mainchunk">
+    <div class="mainchunk" id = "about-me">
       <h1 class="title"> About Me</h1>
       <div>
-      I am a developer based in Canada currently in University.
-      I am proficent with Programming in languages such as Python,C# and html.
+      Hello! <br>
+      My name is Adem Cehajic I am a computer engineering student at McMaster University.<br> I enjoy problem solving, coding, and building electronics. 
+      <br><br>
+      <div class="skill-list">
+        <div>I have experience in:</div>
+        <div>With tools such as:</div> 
+      </div>                               
+      <br><br>
+      <div class="skill-list">
+        <ul>
+          <li>AI research</li>
+          <li>Machine learning</li>
+          <li>Backend developement</li>
+          <li>Frontend developement</li>
+          <li>Natural Language Processing</li>
+          <li>Computer vision</li>
+          <li>Computer aided design</li>
+        </ul> 
+        <div class="skill-imgs">
+          <img src="images/linux-tux-logo-operating-system-png-favpng-uvXveucciu5BN485gDMZ3xxvd-removebg-preview.png" alt="Linux" height="50px">
+          <img src="images/javascript.png" alt="Javascript" height="50px">
+          <img src="images/html.png" alt="HTML" height="50px">
+          <img src="images/css.png" alt="CSS" height="50px">
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="mainchunk">
+      <h1 class="title"> Projects</h1>
+      <div id = "project-page">
+        <div class="project"><a href="https://adem-cehajic.github.io/Calculator/"><img src="images/calc-removebg-preview.png" alt="Calculator"><div>Calculator App</div></a></div>
+        <div class="project"><a href="https://github.com/Adem-Cehajic/Deltahacks11"><div>Sight Sense</div><div id="sightsense-blurb">AI vision assistant for the visually impaired.</div></a></div>
       </div>
     </div>
     <script src="javascript.js"></script>
