@@ -5,7 +5,7 @@ buttons.forEach( (button) => {
         button.style.backgroundColor = "#555a86ff";
     })
     button.addEventListener("mouseleave", () => {
-        button.style.backgroundColor = "#384E77";
+        button.style.backgroundColor = "#0c2148";
     })
 })
 //goes through the list of buttons and gives them 2 events, one makes it darker when its being hovered over, the over changes it back
