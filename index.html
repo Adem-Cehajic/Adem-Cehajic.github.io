@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <title>My GitHub Pages Site</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css"><!--This is where all the CSS is-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123c2d">
+    <meta name="description" content="The portfolio of Adem Cehajic, computer engineering student and software developer.">
+    <title>Adem Cehajic | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="top-title"> <!--Big blue box-->
-      <h1 class="title">Adem Cehajic</h1>
-      <p class="undertitle">Computer Engineer | Software Developer | AI Researcher</p>
-    </div>
-    <div class="butui">
-      <!--the blue box underneath, 
-      also for the addition of future pages,
-      simply add another link with class but and it will format itself
-      (ty flexbox)-->
-      <a class="but" href="#about-me">Homepage</a><a href="#project-page" class="but">Projects</a>
-    </div>
-    <div class="mainchunk" id = "about-me">
-      <h1 class="title"> About Me</h1>
-      <div>
-      Hello! <br>
-      My name is Adem Cehajic I am a computer engineering student at McMaster University.<br> I enjoy problem solving, coding, and building electronics. 
-      <br><br>
-      <div class="skill-list">
-        <div>I have experience with:</div>
-        <div>With tools like:</div> 
-      </div>                               
-      <br><br>
-      <div class="skill-list">
-        <ul>
-          <li>AI research</li>
-          <li>Machine learning</li>
-          <li>Backend developement</li>
-          <li>Frontend developement</li>
-          <li>Natural Language Processing</li>
-          <li>Computer vision</li>
-          <li>Computer aided design</li>
-        </ul> 
-        <div class="skill-imgs">
-          <img src="images/linux-tux-logo-operating-system-png-favpng-uvXveucciu5BN485gDMZ3xxvd-removebg-preview.png" alt="Linux" height="60px">
-          <img src="images/javascript.png" alt="Javascript" height="70px">
-          <img src="images/PyTorch-logo-removebg-preview.png" alt="pytorch" height="60px">
-          <img src="images/css.png" alt="CSS" height="60px">
-          <img src="images/c logo.png" alt="C" height="60px">
-          <img src="images/autodesk logo.png" alt="autodesk inventor" height="60px">
-          <img src="images/gitlogo.png" alt="git" height="60px">
-          <img src="images/python.png" alt="python" height="60px">
-          <img src="images/html.png" alt="HTML" height="60px">
-          <img src="images/docker.png" alt="docker" height="60px">
+    <main class="portfolio">
+
+      <section class="card-stage" aria-label="A row of five cards">
+        <div class="card-wrap">
+          <div class="card-control social-card-control" data-card-name="Social profiles" role="group" tabindex="0" aria-label="Social profiles card, press Enter or Space to turn">
+            <span class="card-flipper">
+              <span class="card-face card-front" aria-hidden="true">
+                <img src="images/card.png" alt="">
+              </span>
+              <span class="card-face card-back social-card-back">
+                <span class="social-card-title">Find me</span>
+                <span class="social-card-links">
+                  <a href="https://github.com/Adem-Cehajic" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <img src="images/githubimagewhite-removebg-preview.png" alt="">
+                  </a>
+                  <a href="https://www.linkedin.com/in/ademcehajic/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <img src="images/whitelinkedin-removebg-preview.png" alt="">
+                  </a>
+                </span>
+              </span>
+            </span>
+          </div>
         </div>
-      </div>
-      </div>
-    </div>
-    <div class="mainchunk">
-      <h1 class="title"> Projects</h1>
-      <div id = "project-page">
-        <div class="project"><a href="https://adem-cehajic.github.io/Calculator/"><img src="images/calc-removebg-preview.png" alt="Calculator"><div>Calculator App</div></a></div>
-        <div class="project"><a href="https://github.com/Adem-Cehajic/Deltahacks11"><div>Sight Sense</div><div id="sightsense-blurb">AI vision assistant for the visually impaired.</div></a></div>
-        <div class="project"><a href="https://github.com/Adem-Cehajic/fake_news_detector"><div>Fake News Detector AI Model</div></a></div>
-      </div>
-    </div>
+        <div class="card-wrap">
+          <button class="card-control" type="button" data-card-name="Nothing card" aria-label="Reveal Nothing card" aria-pressed="false">
+            <span class="card-flipper">
+              <span class="card-face card-front" aria-hidden="true">
+                <img src="images/card.png" alt="">
+              </span>
+              <span class="card-face card-back card-back-empty">nothing</span>
+            </span>
+          </button>
+        </div>
+        <div class="card-wrap card-wrap-about">
+          <button class="card-control" type="button" data-card-name="About Adem" aria-label="Reveal about Adem" aria-pressed="false">
+            <span class="card-flipper">
+              <span class="card-face card-front" aria-hidden="true">
+                <img src="images/card.png" alt="">
+              </span>
+              <span class="card-face card-back">
+                <span class="card-index">A · 01</span>
+                <span class="card-heading">A little<br>about me<span>.</span></span>
+                <span class="card-rule"></span>
+                <span class="card-copy">Hello, I’m Adem, a computer engineering student at McMaster University. I enjoy solving problems, writing software, and building electronics.</span>
+                <span class="card-interests">AI research <i>·</i> software <i>·</i> electronics</span>
+                <span class="card-signoff">TURN TO EXPLORE <span>↗</span></span>
+              </span>
+            </span>
+          </button>
+        </div>
+        <div class="card-wrap">
+          <button class="card-control" type="button" data-card-name="Nothing card" aria-label="Reveal Nothing card" aria-pressed="false">
+            <span class="card-flipper">
+              <span class="card-face card-front" aria-hidden="true">
+                <img src="images/card.png" alt="">
+              </span>
+              <span class="card-face card-back card-back-empty">nothing</span>
+            </span>
+          </button>
+        </div>
+        <div class="card-wrap">
+          <button class="card-control" type="button" data-card-name="Nothing card" aria-label="Reveal Nothing card" aria-pressed="false">
+            <span class="card-flipper">
+              <span class="card-face card-front" aria-hidden="true">
+                <img src="images/card.png" alt="">
+              </span>
+              <span class="card-face card-back card-back-empty">nothing</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+    </main>
     <script src="javascript.js"></script>
-    <div class="bottom">
-      <a href="https://github.com/Adem-Cehajic" target="_blank" rel="noopener noreferrer"><img src="images/githubimagewhite-removebg-preview.png" alt="Github"></a>
-      <a href="https://www.linkedin.com/in/adem-cehajic-997a87334/" target="_blank" rel="noopener noreferrer"><img src="images/whitelinkedin-removebg-preview.png" alt="Github"></a>
-    </div>
   </body>
 </html>
