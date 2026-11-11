@@ -2,9 +2,9 @@
   color-scheme: dark;
   --forest: #123c2d;
   --forest-deep: #0c2b21;
-  --paper: #f2eddf;
-  --ink: #1b3026;
-  --muted: #b6c4b8;
+  --paper: #f2eddf; /* Off-white main text, links, and card face. */
+  --ink: #1b3026; /* Dark text on the off-white card backs. */
+  --muted: #b6c4b8; /* Muted header, footer, and instruction text. */
   font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,7 +24,7 @@ body {
 body {
   min-height: 100vh;
   min-height: 100svh;
-  color: var(--paper);
+  color: var(--paper); /* Main site text. */
   background-color: var(--forest);
   background-image:
     radial-gradient(ellipse at 50% 43%, rgba(52, 94, 67, 0.48), transparent 49%),
@@ -53,7 +53,7 @@ a {
 .masthead {
   min-height: 54px;
   border-bottom: 1px solid rgba(242, 237, 223, 0.25);
-  color: var(--muted);
+  color: var(--muted); /* Secondary masthead text. */
   font-size: 11px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -61,7 +61,7 @@ a {
 
 .wordmark {
   width: fit-content;
-  color: var(--paper);
+  color: var(--paper); /* Wordmark text. */
   font-family: Georgia, "Times New Roman", serif;
   font-size: 26px;
   font-weight: 700;
@@ -71,7 +71,7 @@ a {
 
 .wordmark span,
 .card-heading > span {
-  color: #d58b54;
+  color: #d58b54; /* Warm accent for the wordmark and heading punctuation. */
 }
 
 .masthead p {
@@ -85,7 +85,7 @@ a {
 
 .edition span {
   margin-left: 14px;
-  color: var(--paper);
+  color: var(--paper); /* Edition number. */
 }
 
 .card-stage {
@@ -97,8 +97,10 @@ a {
   width: 100%;
   min-height: 0;
   padding: 34px 0;
-  gap: clamp(12px, 2vw, 24px);
+  --card-gap: clamp(12px, 8vw, 256px);
+  gap: var(--card-gap);
   overflow-x: auto;
+  overflow-y: clip;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
 }
@@ -107,20 +109,285 @@ a {
   display: none;
 }
 
+.card-stage.is-projects-view {
+  display: block;
+  padding: 16px 0;
+  overflow: auto;
+  scroll-snap-type: none;
+}
+
+.card-stage.is-projects-view > .card-wrap {
+  display: none;
+}
+
+.project-board {
+  --project-gap: clamp(8px, 4vw, 32px);
+  --project-card-width: clamp(82px, 10vw, 140px);
+  --project-row-gap: 24px;
+  display: none;
+  width: max-content;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  grid-template-columns: repeat(5, var(--project-card-width));
+  grid-template-rows: repeat(2, auto);
+  column-gap: var(--project-gap);
+  row-gap: var(--project-row-gap);
+  align-content: center;
+  justify-content: center;
+}
+
+.card-stage.is-projects-view .project-board {
+  display: grid;
+}
+
+.project-card {
+  position: relative;
+  width: var(--project-card-width);
+  aspect-ratio: 2 / 3;
+  perspective: 1000px;
+  --deal-x: 0px;
+  --deal-landing-x: 0px;
+  --deal-angle: -10deg;
+  --pack-x: 0px;
+  --pack-y: 0px;
+  --pack-angle: 0deg;
+  --pack-delay: 0ms;
+}
+
+.project-board.is-entering .project-card {
+  animation: card-deal 950ms cubic-bezier(0.18, 0.78, 0.25, 1) both;
+  animation-delay: var(--project-delay);
+}
+
+.project-card:nth-child(1),
+.project-card:nth-child(5) {
+  --deal-x: calc(200% + var(--project-gap) + var(--project-gap));
+  --deal-angle: -15deg;
+  --pack-x: calc(400% + var(--project-gap) + var(--project-gap) + var(--project-gap) + var(--project-gap));
+  --pack-y: calc(50% + 6px);
+  --pack-angle: 8deg;
+}
+
+.project-card:nth-child(2),
+.project-card:nth-child(6) {
+  --deal-x: calc(100% + var(--project-gap));
+  --deal-angle: 12deg;
+  --pack-x: calc(300% + var(--project-gap) + var(--project-gap) + var(--project-gap));
+  --pack-y: calc(50% + 6px);
+  --pack-angle: 5deg;
+}
+
+.project-card:nth-child(3),
+.project-card:nth-child(7) {
+  --deal-x: 0px;
+  --deal-angle: -8deg;
+  --pack-x: calc(200% + var(--project-gap) + var(--project-gap));
+  --pack-y: calc(50% + 6px);
+  --pack-angle: 2deg;
+}
+
+.project-card:nth-child(4),
+.project-card:nth-child(8) {
+  --deal-x: calc(-100% - var(--project-gap));
+  --deal-angle: 14deg;
+  --pack-x: calc(100% + var(--project-gap));
+  --pack-y: calc(50% + 6px);
+  --pack-angle: -2deg;
+}
+
+.project-card:nth-child(5),
+.project-card:nth-child(6),
+.project-card:nth-child(7),
+.project-card:nth-child(8) {
+  --pack-y: calc(-50% - 6px);
+}
+
+.project-card:nth-child(1) { --project-delay: 0ms; --pack-delay: 0ms; }
+.project-card:nth-child(2) { --project-delay: 90ms; --pack-delay: 40ms; }
+.project-card:nth-child(3) { --project-delay: 180ms; --pack-delay: 80ms; }
+.project-card:nth-child(4) { --project-delay: 270ms; --pack-delay: 120ms; }
+.project-card:nth-child(5) { --project-delay: 360ms; --pack-delay: 160ms; }
+.project-card:nth-child(6) { --project-delay: 450ms; --pack-delay: 200ms; }
+.project-card:nth-child(7) { --project-delay: 540ms; --pack-delay: 240ms; }
+.project-card:nth-child(8) { --project-delay: 630ms; --pack-delay: 280ms; }
+.project-card:nth-child(9) { --project-delay: 720ms; --pack-delay: 320ms; }
+
+.project-return-card {
+  grid-column: 5;
+  grid-row: 1 / span 2;
+  align-self: center;
+  z-index: 9;
+}
+
+.project-card-back {
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8%;
+  text-align: center;
+}
+
+.project-name {
+  color: var(--ink); /* Project title text. */
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(11px, 1vw, 14px);
+  line-height: 1.15;
+}
+
+.project-link {
+  color: var(--ink); /* Project links and the return-card label. */
+  font-size: clamp(9px, 0.8vw, 11px);
+  line-height: 1.25;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.project-description {
+  width: 100%;
+  color: var(--ink); /* Project description and technology details. */
+  font-size: clamp(8px, 0.7vw, 10px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.project-technologies {
+  width: 100%;
+  color: var(--ink);
+  font-size: clamp(8px, 0.7vw, 10px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.card-stage.is-preparing-project-pack .project-card {
+  animation: none;
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
+  transition: none;
+}
+
+.card-stage.is-packing-projects .project-card {
+  animation: none;
+  transition: transform 620ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  transition-delay: var(--pack-delay);
+  transform: translate3d(var(--pack-x), var(--pack-y), 0) rotate(var(--pack-angle));
+}
+
+.card-stage.is-projects-lifting .project-card {
+  animation: none;
+  opacity: 0;
+  transition: transform 680ms cubic-bezier(0.55, 0, 0.8, 0.35), opacity 540ms ease;
+  transform: translate3d(var(--pack-x), -110vh, 0) rotate(var(--deal-angle)) scale(0.72);
+}
+
 .card-wrap {
   flex: 0 0 clamp(112px, 14vw, 180px);
   width: clamp(112px, 14vw, 180px);
   aspect-ratio: 2 / 3;
   perspective: 1200px;
   scroll-snap-align: center;
-  animation: card-arrive 700ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+  --deal-x: 0px;
+  --deal-landing-x: 0px;
+  --deal-angle: -10deg;
+  --stack-x: 0px;
+  --stack-y: 0px;
+  --stack-angle: 0deg;
+  --stack-delay: 0ms;
+  animation: card-deal 950ms cubic-bezier(0.18, 0.78, 0.25, 1) both;
+}
+
+.card-wrap:nth-child(1) {
+  --deal-x: calc(100% + var(--card-gap));
+  --deal-landing-x: -14px;
+  --deal-angle: -16deg;
+  --stack-x: 0px;
+  --stack-y: 0px;
+  --stack-angle: 0deg;
+  --stack-delay: 160ms;
+  animation-delay: 0ms;
+  z-index: 3;
+}
+
+.card-wrap:nth-child(2) {
+  --deal-x: 0px;
+  --deal-landing-x: 0px;
+  --deal-angle: -8deg;
+  --stack-x: calc(-100% - var(--card-gap));
+  --stack-y: 3px;
+  --stack-angle: 1deg;
+  --stack-delay: 80ms;
+  animation-delay: 180ms;
+  z-index: 2;
+}
+
+.card-wrap:nth-child(3) {
+  --deal-x: calc(-100% - var(--card-gap));
+  --deal-landing-x: 14px;
+  --deal-angle: -14deg;
+  --stack-x: calc(-200% - var(--card-gap) - var(--card-gap));
+  --stack-y: 6px;
+  --stack-angle: -1deg;
+  animation-delay: 360ms;
+  z-index: 1;
+}
+
+.card-stage.is-transitioning {
+  scroll-snap-type: none;
+}
+
+.card-stage.is-transitioning .card-control {
+  pointer-events: none;
+}
+
+.card-stage.is-flipping-down .card-control {
+  pointer-events: none;
+}
+
+.card-stage.is-flipping-down .card-flipper {
+  transform: rotateY(0deg) !important;
+}
+
+.card-stage.is-transitioning .card-flipper {
+  transform: rotateY(0deg) !important;
+  transition-duration: 0.01ms !important;
+}
+
+.card-stage.is-preparing-stack .card-wrap {
+  animation: none;
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
+  transition: none;
+}
+
+.card-stage.is-stacking .card-wrap {
+  animation: none;
+  transition: transform 620ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  transition-delay: var(--stack-delay);
+  transform: translate3d(var(--stack-x), var(--stack-y), 0) rotate(var(--stack-angle));
+}
+
+.card-stage.is-leaving .card-wrap {
+  animation: none;
+  opacity: 0;
+  transition: transform 680ms cubic-bezier(0.55, 0, 0.8, 0.35), opacity 540ms ease;
+  transform: translate3d(var(--stack-x), -110vh, 0) rotate(var(--deal-angle)) scale(0.72);
+}
+
+.card-stage.is-replaying .card-wrap {
+  animation: none;
+  opacity: 0;
+  transform: translate3d(var(--deal-x), -110vh, 0) rotate(var(--deal-angle)) scale(0.72);
+  transition: none;
 }
 
 .card-wrap-about .card-back {
+  align-items: center;
+  justify-content: center;
   padding: 7% 8% 6%;
+  text-align: center;
 }
 
 .card-wrap-about .card-heading {
+  margin-top: 0;
   font-size: clamp(20px, 1.8vw, 24px);
 }
 
@@ -129,6 +396,7 @@ a {
 }
 
 .card-wrap-about .card-copy {
+  width: 100%;
   font-size: clamp(9px, 0.75vw, 10px);
   line-height: 1.4;
 }
@@ -151,7 +419,7 @@ a {
   padding: 0;
   border: 0;
   border-radius: 0;
-  color: inherit;
+  color: inherit; /* Card controls inherit the page's main text color. */
   background: transparent;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -172,8 +440,12 @@ a {
   transition: transform 720ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.card-control:hover .card-flipper,
-.card-control.is-flipped .card-flipper {
+/* Adjust this duration to change how long Projects flips before the slide begins. */
+.card-wrap-projects .card-flipper {
+  transition-duration: 480ms;
+}
+
+.card-control:hover .card-flipper {
   transform: rotateY(180deg);
 }
 
@@ -200,7 +472,7 @@ a {
   padding: 10% 10.5% 8%;
   /* Adjust this value to change the revealed card's corner roundness. */
   border-radius: 14px;
-  color: var(--ink);
+  color: var(--ink); /* Primary text on revealed card backs. */
   background-color: var(--paper);
   transform: rotateY(180deg);
   text-align: left;
@@ -217,26 +489,20 @@ a {
 .social-card-back {
   align-items: center;
   justify-content: center;
-  gap: 12px;
-}
-
-.social-card-title {
-  color: #65756a;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 15px;
 }
 
 .social-card-links {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .social-card-links a {
   display: grid;
-  width: 34px;
+  width: 64px;
   aspect-ratio: 1;
   place-items: center;
-  border-radius: 50%;
+  border-radius: 75%;
   background-color: var(--forest);
   transition: background-color 160ms ease, transform 160ms ease;
 }
@@ -253,8 +519,8 @@ a {
 }
 
 .social-card-links img {
-  width: 19px;
-  height: 19px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
 }
 
@@ -266,7 +532,7 @@ a {
 }
 
 .card-index {
-  color: #65756a;
+  color: #65756a; /* Small card index label. */
 }
 
 .card-heading {
@@ -280,26 +546,26 @@ a {
   width: 32px;
   height: 2px;
   margin: 16px 0 12px;
-  background: #c77e48;
+  background: var(--ink);
 }
 
 .card-copy {
   max-width: 235px;
-  color: #43574b;
+  color: #43574b; /* About-me paragraph text. */
   font-size: clamp(11px, 2.8vw, 13px);
   line-height: 1.65;
 }
 
 .card-interests {
   margin-top: 14px;
-  color: #65756a;
+  color: #65756a; /* Supporting interests text. */
   font-size: clamp(8px, 2.2vw, 10px);
   line-height: 1.5;
 }
 
 .card-interests i {
   padding: 0 2px;
-  color: #c77e48;
+  color: #c77e48; /* Warm separators between interests. */
   font-style: normal;
 }
 
@@ -309,12 +575,12 @@ a {
   margin-top: auto;
   padding-top: 12px;
   border-top: 1px solid rgba(27, 48, 38, 0.2);
-  color: #65756a;
+  color: #65756a; /* Card sign-off label. */
   font-size: 8px;
 }
 
 .card-signoff span {
-  color: #c77e48;
+  color: #c77e48; /* Sign-off arrow accent. */
   font-size: 14px;
 }
 
@@ -323,7 +589,7 @@ a {
   align-items: center;
   gap: 9px;
   margin: 22px 0 0;
-  color: var(--muted);
+  color: var(--muted); /* Card interaction hint. */
   font-size: 10px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -331,13 +597,13 @@ a {
 
 .card-caption span,
 .footer-dot {
-  color: #d58b54;
+  color: #d58b54; /* Caption dot and footer location accent. */
 }
 
 .site-footer {
   min-height: 48px;
   border-top: 1px solid rgba(242, 237, 223, 0.25);
-  color: var(--muted);
+  color: var(--muted); /* Footer supporting text. */
   font-size: 11px;
 }
 
@@ -348,30 +614,37 @@ a {
 }
 
 .site-footer a {
-  color: var(--paper);
+  color: var(--paper); /* Footer social-link text. */
   text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: #e4b475;
+  color: #e4b475; /* Footer link text on hover. */
 }
 
 .site-footer a span {
-  color: #d58b54;
+  color: #d58b54; /* Footer link arrow accent. */
 }
 
 .site-footer > span:last-child {
   justify-self: end;
 }
 
-@keyframes card-arrive {
-  from {
+@keyframes card-deal {
+  0% {
     opacity: 0;
-    transform: translateY(14px) rotate(-2deg);
+    transform: translate3d(var(--deal-x), -110vh, 0) rotate(var(--deal-angle)) scale(0.72);
   }
-  to {
+  68% {
     opacity: 1;
-    transform: translateY(0) rotate(0);
+    transform: translate3d(var(--deal-landing-x), 8px, 0) rotate(2deg) scale(1.03);
+  }
+  84% {
+    transform: translate3d(0, -5px, 0) rotate(-1deg) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0) scale(1);
   }
 }
 
@@ -403,6 +676,35 @@ a {
   .card-wrap {
     flex-basis: 160px;
     width: 160px;
+  }
+
+  .project-board {
+    --project-card-width: 100px;
+    --project-gap: 8px;
+    --project-row-gap: 10px;
+  }
+
+  .project-card-back {
+    gap: 4px;
+    padding: 6%;
+  }
+
+  .project-name {
+    font-size: 10px;
+  }
+
+  .project-link {
+    font-size: 8px;
+  }
+
+  .project-description {
+    font-size: 7px;
+    line-height: 1.15;
+  }
+
+  .project-technologies {
+    font-size: 7px;
+    line-height: 1.15;
   }
 
   .card-stage {
@@ -477,6 +779,16 @@ a {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .card-wrap {
+    --stack-delay: 0ms;
+    animation-delay: 0ms !important;
+  }
+
+  .project-card {
+    --pack-delay: 0ms;
+    animation-delay: 0ms !important;
   }
 }
 

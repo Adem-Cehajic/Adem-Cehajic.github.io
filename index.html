@@ -11,15 +11,14 @@
   <body>
     <main class="portfolio">
 
-      <section class="card-stage" aria-label="A row of five cards">
+      <section class="card-stage" aria-label="A row of three cards">
         <div class="card-wrap">
-          <div class="card-control social-card-control" data-card-name="Social profiles" role="group" tabindex="0" aria-label="Social profiles card, press Enter or Space to turn">
+          <div class="card-control social-card-control" data-card-name="Social profiles" role="group" aria-label="Social profiles">
             <span class="card-flipper">
               <span class="card-face card-front" aria-hidden="true">
                 <img src="images/card.png" alt="">
               </span>
               <span class="card-face card-back social-card-back">
-                <span class="social-card-title">Find me</span>
                 <span class="social-card-links">
                   <a href="https://github.com/Adem-Cehajic" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
                     <img src="images/githubimagewhite-removebg-preview.png" alt="">
@@ -32,52 +31,145 @@
             </span>
           </div>
         </div>
-        <div class="card-wrap">
-          <button class="card-control" type="button" data-card-name="Nothing card" aria-label="Reveal Nothing card" aria-pressed="false">
-            <span class="card-flipper">
-              <span class="card-face card-front" aria-hidden="true">
-                <img src="images/card.png" alt="">
-              </span>
-              <span class="card-face card-back card-back-empty">nothing</span>
-            </span>
-          </button>
-        </div>
         <div class="card-wrap card-wrap-about">
-          <button class="card-control" type="button" data-card-name="About Adem" aria-label="Reveal about Adem" aria-pressed="false">
+          <button class="card-control" type="button" data-card-name="About Adem" aria-label="Reveal About Adem">
             <span class="card-flipper">
               <span class="card-face card-front" aria-hidden="true">
                 <img src="images/card.png" alt="">
               </span>
               <span class="card-face card-back">
-                <span class="card-index">A · 01</span>
-                <span class="card-heading">A little<br>about me<span>.</span></span>
+                <span class="card-heading">A little<br>about me.</span>
                 <span class="card-rule"></span>
                 <span class="card-copy">Hello, I’m Adem, a computer engineering student at McMaster University. I enjoy solving problems, writing software, and building electronics.</span>
-                <span class="card-interests">AI research <i>·</i> software <i>·</i> electronics</span>
-                <span class="card-signoff">TURN TO EXPLORE <span>↗</span></span>
               </span>
             </span>
           </button>
         </div>
-        <div class="card-wrap">
-          <button class="card-control" type="button" data-card-name="Nothing card" aria-label="Reveal Nothing card" aria-pressed="false">
+        <div class="card-wrap card-wrap-projects">
+          <button class="card-control" type="button" data-card-name="Projects" aria-label="Reveal Projects">
             <span class="card-flipper">
               <span class="card-face card-front" aria-hidden="true">
                 <img src="images/card.png" alt="">
               </span>
-              <span class="card-face card-back card-back-empty">nothing</span>
+              <span class="card-face card-back card-back-empty">Projects</span>
             </span>
           </button>
         </div>
-        <div class="card-wrap">
-          <button class="card-control" type="button" data-card-name="Nothing card" aria-label="Reveal Nothing card" aria-pressed="false">
-            <span class="card-flipper">
-              <span class="card-face card-front" aria-hidden="true">
-                <img src="images/card.png" alt="">
+
+        <div class="project-board" aria-label="Project cards" aria-hidden="true">
+          <!-- Replace each project name and href with the matching project details. -->
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 1" role="group" aria-label="Project 1">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">Cupid Glasses</span>
+                  <a class="project-link" href="https://devpost.com/software/cupid-glasses" target="_blank">Project link</a>
+                  <span class="project-description">Developed embedded firmware for smart glasses, connecting an ESP32 camera system to a backend for personalized conversation prompts.</span>
+                  <span class="project-technologies">Embedded C · ESP32 · Python/Flask</span>
+                </span>
               </span>
-              <span class="card-face card-back card-back-empty">nothing</span>
-            </span>
-          </button>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 2" role="group" aria-label="Project 2">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">SightSense</span>
+                  <a class="project-link" href="https://github.com/SammyTourani/SightSense" target="_blank">Project link</a>
+                  <span class="project-description">Contributed to an accessibility app providing visually impaired users with voice-guided object detection, depth estimation, and scene descriptions.</span>
+                  <span class="project-technologies">Python · YOLOv8 · Swift</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 3" role="group" aria-label="Project 3">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">Spacial Mapping Device</span>
+                  <a class="project-link" href="https://github.com/Adem-Cehajic/3D-Spacial-Mapping-Project" target="_blank">Project Link</a>
+                  <span class="project-description">Developed an embedded 3D scanner using a ToF sensor and stepper motor to generate spatial point clouds in MATLAB.</span>
+                  <span class="project-technologies">Embedded C · MSP432 · UART</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 4" role="group" aria-label="Project 4">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">Adem Bot</span>
+                  <a class="project-link" href="https://devpost.com/software/adem-bot" target="_blank">Project link</a>
+                  <span class="project-description">Developed a competition robot alongside an interactive 3D digital twin for virtual prototyping, component configuration, and hand tracking.</span>
+                  <span class="project-technologies">Embedded C · Aurdino · MediaPipe · Snowflake</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 5" role="group" aria-label="Project 5">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">Fake News Detector</span>
+                  <a class="project-link" href="https://github.com/Adem-Cehajic/fake_news_detector" target="_blank">Project link</a>
+                  <span class="project-description">Developed an NLP classifier to identify fake news using text preprocessing, TF-IDF feature extraction, and logistic regression.</span>
+                  <span class="project-technologies">Python · Scikit-learn · NLP</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 6" role="group" aria-label="Project 6">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">Body slices</span>
+                  <a class="project-link" href="https://github.com/Adem-Cehajic/Body-Slices" target="_blank">Project link</a>
+                  <span class="project-description">Built a deep learning pipeline to generate internal anatomical tissue representations from images using 3D human body models.</span>
+                  <span class="project-technologies">Python · PyTorch · C++</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 7" role="group" aria-label="Project 7">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">Systolic Array</span>
+                  <a class="project-link" href="https://github.com/lukelu764/SystolicArray" target="_blank">Project link</a>
+                  <span class="project-description">Designed a parameterized systolic array accelerator for matrix multiplication using parallel processing elements and tiled computation.</span>
+                  <span class="project-technologies">SystemVerilog · FPGA Design · Numpy</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-control project-card-control" data-card-name="Project 8" role="group" aria-label="Project 8">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back">
+                  <span class="project-name">Automated Medicine Cabinet</span>
+                  <a class="project-link" href="https://github.com/Adem-Cehajic/Automated-Medicine-Cabinet" target="_blank">Project link</a>
+                  <span class="project-description">Developed a desktop interface for an automated medication cabinet, supporting role-based access, cabinet monitoring, fault alerts, and dispensing workflows.</span>
+                  <span class="project-technologies">Python · Tkinter · OOP</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="project-card project-return-card">
+            <button class="card-control project-card-control" type="button" data-card-name="Back to cards" aria-label="Back to cards">
+              <span class="card-flipper">
+                <span class="card-face card-front" aria-hidden="true"><img src="images/card.png" alt=""></span>
+                <span class="card-face card-back project-card-back"><span class="project-name">Back</span><span class="project-link">Return to cards</span></span>
+              </span>
+            </button>
+          </div>
         </div>
       </section>
 
